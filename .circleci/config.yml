@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Build Docker image
+          command: ./release.sh
+
+workflows:
+  version: 2
+  build-image:
+    jobs:
+      - build:
+          context: Docker
